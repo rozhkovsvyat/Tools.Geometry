@@ -31,7 +31,7 @@ Provides the ability to calculate shape properties:
 
 ### SHAPE ARGS
 
-* **IArgs, IShapeArgs** -- interfaces providing shape arguments and a static recipe (function that returns a new shape)
+* **IArgs, IShapeArgs** -- interfaces providing shape arguments and a static recipe (func that returns a new shape)
 * **TriangleArgs, CircleArgs** -- implementations of shape arguments
 
 ---
