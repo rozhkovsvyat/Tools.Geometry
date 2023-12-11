@@ -14,6 +14,11 @@ public class Shaper
 		= new (() => new DefaultShape());
 
 	/// <summary>
+	/// Number of available shape types.
+	/// </summary>
+	public int TypesCount => _factory.RecipeNames.Count;
+
+	/// <summary>
 	/// Empty constructor.
 	/// </summary>
 	public Shaper() 
