@@ -21,8 +21,4 @@
     <ProjectReference Include="..\Geometry\Geometry.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ShapeArgsTests\" />
-  </ItemGroup>
-
 </Project>

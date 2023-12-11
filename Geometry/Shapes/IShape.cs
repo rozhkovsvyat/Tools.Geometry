@@ -18,7 +18,7 @@ public interface IShape
 /// <summary>
 /// Default implementation of <see cref="IShape"/>.
 /// </summary>
-internal class DefaultShape : IShape
+public class DefaultShape : IShape
 {
 	/// <inheritdoc/>
 	public double Perimeter => uint.MinValue;
