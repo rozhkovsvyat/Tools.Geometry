@@ -38,5 +38,5 @@ Provides the ability to calculate shape properties:
 
 ### GEOMETRY TESTS
 
-* **ShaperTests, ShapesTests, ShapeArgsTests** -- unit tests classes based on [MSTest](https://www.nuget.org/packages/MSTest)
-* **Tests** -- abstract class containing test constants
+* **ShaperTests, ShapesTests, ShapeArgsTests** -- unit test classes based on [MSTest](https://www.nuget.org/packages/MSTest)
+* **Tests** -- abstract class containing unit test constants
