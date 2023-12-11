@@ -9,7 +9,7 @@ Geometry working toolkit
 > :eye_speech_bubble: https://www.nuget.org/packages/RozhkovSvyat.Tools.Geometry/
 
 Provides the ability to calculate shape properties:
-* **Triangle** -- perimeter, area based on three sides (using different formulas according to the type of triangle)
+* **Triangle** -- perimeter, area based on three sides _(using different formulas according to the type of triangle)_
 * **Circle** -- perimeter, area based on radius
 
 ---
@@ -31,7 +31,7 @@ Provides the ability to calculate shape properties:
 
 ### SHAPE ARGS
 
-* **IArgs, IShapeArgs** -- interfaces providing shape arguments and a static recipe (func that returns a new shape)
+* **IArgs, IShapeArgs** -- interfaces providing shape arguments and a static recipe _(func that returns a new shape)_
 * **TriangleArgs, CircleArgs** -- implementations of shape arguments
 
 ---
