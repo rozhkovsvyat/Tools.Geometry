@@ -1,7 +1,9 @@
+using System.Net.Mail;
+
 namespace Tools.GeometryTests;
 
 [TestClass]
-public class TriangleArgsTests
+public class TriangleArgsTests : Tests
 {
 	#region Recipe
 
@@ -12,11 +14,12 @@ public class TriangleArgsTests
 		const double sideB = 5;
 		const double sideC = 6;
 
-		var expected = typeof(Triangle);
-		IArgs args = new TriangleArgs(sideA, sideB, sideC);
+		var args = new TriangleArgs(sideA, sideB, sideC);
 		var actual = TriangleArgs.Recipe.Invoke(args).GetType();
+		var expected = typeof(Triangle);
 
-		Assert.AreEqual(expected, actual);
+		Assert.AreEqual(expected, actual, FailMessage,
+			nameof(Type), expected, actual);
 	}
 
 	[TestMethod]
@@ -24,11 +27,12 @@ public class TriangleArgsTests
 	{
 		const double radius = 15;
 
-		var expected = typeof(DefaultShape);
-		IArgs args = new CircleArgs(radius);
+		var args = new CircleArgs(radius);
 		var actual = TriangleArgs.Recipe.Invoke(args).GetType();
+		var expected = typeof(DefaultShape);
 
-		Assert.AreEqual(expected, actual);
+		Assert.AreEqual(expected, actual, FailMessage,
+			nameof(Type), expected, actual);
 	}
 
 	#endregion

@@ -1,13 +1,8 @@
 namespace Tools.GeometryTests;
 
 [TestClass]
-public class CircleTests
+public class CircleTests : Tests
 {
-	/// <summary>
-	/// Double comparison tolerance.
-	/// </summary>
-	private const float Tolerance = 0.01f;
-
 	#region GetArea
 
 	[TestMethod]
@@ -18,7 +13,8 @@ public class CircleTests
 
 		var actual = Circle.GetArea(radius);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, 
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -29,7 +25,8 @@ public class CircleTests
 
 		var actual = Circle.GetArea(radius);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, 
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -38,9 +35,11 @@ public class CircleTests
 		const double radius = 15;
 
 		var circle = new Circle(radius);
+		var actual = circle.Area;
 		var expected = Circle.GetArea(radius);
 
-		Assert.AreEqual(expected, circle.Area, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, 
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -49,9 +48,11 @@ public class CircleTests
 		const double radius = 38.4;
 
 		var circle = new Circle(radius);
+		var actual = circle.Area;
 		var expected = Circle.GetArea(radius);
 
-		Assert.AreEqual(expected, circle.Area, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	#endregion
@@ -66,7 +67,8 @@ public class CircleTests
 
 		var actual = Circle.GetPerimeter(radius);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, FailMessageF4, 
+			nameof(IShape.Perimeter), expected, actual);
 	}
 
 	[TestMethod]
@@ -77,7 +79,8 @@ public class CircleTests
 
 		var actual = Circle.GetPerimeter(radius);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, FailMessageF4,
+			nameof(IShape.Perimeter), expected, actual);
 	}
 
 	[TestMethod]
@@ -86,9 +89,11 @@ public class CircleTests
 		const double radius = 225.37;
 
 		var circle = new Circle(radius);
+		var actual = circle.Perimeter;
 		var expected = Circle.GetPerimeter(radius);
 
-		Assert.AreEqual(expected, circle.Perimeter, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, FailMessageF4,
+			nameof(IShape.Perimeter), expected, actual);
 	}
 
 	[TestMethod]
@@ -97,9 +102,11 @@ public class CircleTests
 		const double radius = 0.04;
 
 		var circle = new Circle(radius);
+		var actual = circle.Perimeter;
 		var expected = Circle.GetPerimeter(radius);
 
-		Assert.AreEqual(expected, circle.Perimeter, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, FailMessageF4,
+			nameof(IShape.Perimeter), expected, actual);
 	}
 
 	#endregion
@@ -107,16 +114,16 @@ public class CircleTests
 	#region Exception
 
 	[TestMethod]
-	[ExpectedException(typeof(ArgumentException), "Exception was not thrown.")]
+	[ExpectedException(typeof(ArgumentException), NoExceptionMessage)]
 	public void Circle_0_Exception()
 	{
-		const double radius = uint.MinValue;
+		const double radius = 0;
 
 		var _ = new Circle(radius);
 	}
 
 	[TestMethod]
-	[ExpectedException(typeof(ArgumentException), "Exception was not thrown.")]
+	[ExpectedException(typeof(ArgumentException), NoExceptionMessage)]
 	public void Circle_min5d4_Exception()
 	{
 		const double radius = -5.4;

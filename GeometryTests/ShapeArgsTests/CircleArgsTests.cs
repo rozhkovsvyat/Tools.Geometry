@@ -1,7 +1,7 @@
 namespace Tools.GeometryTests;
 
 [TestClass]
-public class CircleArgsTests
+public class CircleArgsTests : Tests
 {
 	#region Recipe
 
@@ -10,11 +10,12 @@ public class CircleArgsTests
 	{
 		const double radius = 15;
 
-		var expected = typeof(Circle);
-		IArgs args = new CircleArgs(radius);
+		var args = new CircleArgs(radius);
 		var actual = CircleArgs.Recipe.Invoke(args).GetType();
+		var expected = typeof(Circle);
 
-		Assert.AreEqual(expected, actual);
+		Assert.AreEqual(expected, actual, FailMessage,
+			nameof(Type), expected, actual);
 	}
 
 	[TestMethod]
@@ -24,11 +25,12 @@ public class CircleArgsTests
 		const double sideB = 5;
 		const double sideC = 6;
 
-		var expected = typeof(DefaultShape);
-		IArgs args = new TriangleArgs(sideA, sideB, sideC);
+		var args = new TriangleArgs(sideA, sideB, sideC);
 		var actual = CircleArgs.Recipe.Invoke(args).GetType();
+		var expected = typeof(DefaultShape);
 
-		Assert.AreEqual(expected, actual);
+		Assert.AreEqual(expected, actual, FailMessage, 
+			nameof(Type), expected, actual);
 	}
 
 	#endregion

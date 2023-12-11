@@ -1,13 +1,8 @@
 namespace Tools.GeometryTests;
 
 [TestClass]
-public class TriangleTests
+public class TriangleTests : Tests
 {
-	/// <summary>
-	/// Double comparison tolerance.
-	/// </summary>
-	private const float Tolerance = 0.01f;
-
 	#region GetArea [Right]
 
 	[TestMethod]
@@ -19,7 +14,8 @@ public class TriangleTests
 
 		var actual = Triangle.GetAreaRight(legA, legB);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, 
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -31,7 +27,8 @@ public class TriangleTests
 
 		var actual = Triangle.GetAreaRight(legA, legB);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, 
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -42,9 +39,11 @@ public class TriangleTests
 		const double hippo = 97.13;
 
 		var triangle = new Triangle(legA, legB, hippo);
+		var actual = triangle.Area;
 		var expected = Triangle.GetAreaRight(legA, legB);
 
-		Assert.AreEqual(expected, triangle.Area, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	#endregion
@@ -59,7 +58,8 @@ public class TriangleTests
 
 		var actual = Triangle.GetAreaEquilateral(side);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -70,7 +70,8 @@ public class TriangleTests
 
 		var actual = Triangle.GetAreaEquilateral(side);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -79,9 +80,11 @@ public class TriangleTests
 		const double side = 61.33;
 
 		var triangle = new Triangle(side, side, side);
+		var actual = triangle.Area;
 		var expected = Triangle.GetAreaEquilateral(side);
 
-		Assert.AreEqual(expected, triangle.Area, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	#endregion
@@ -97,7 +100,8 @@ public class TriangleTests
 
 		var actual = Triangle.GetAreaIsosceles(side, bs);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -109,7 +113,8 @@ public class TriangleTests
 
 		var actual = Triangle.GetAreaIsosceles(side, bs);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -119,9 +124,11 @@ public class TriangleTests
 		const double bs = 84.944;
 
 		var triangle = new Triangle(side, bs, side);
+		var actual = triangle.Area;
 		var expected = Triangle.GetAreaIsosceles(side, bs);
 
-		Assert.AreEqual(expected, triangle.Area, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	#endregion
@@ -139,7 +146,8 @@ public class TriangleTests
 
 		var actual = Triangle.GetArea(sideA, sideB, sideC, pp);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -153,7 +161,8 @@ public class TriangleTests
 
 		var actual = Triangle.GetArea(sideA, sideB, sideC, pp);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -165,9 +174,11 @@ public class TriangleTests
 		const double pp = (sideA + sideB + sideC) / 2;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.Area;
 		var expected = Triangle.GetArea(sideA, sideB, sideC, pp);
 
-		Assert.AreEqual(expected, triangle.Area, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	#endregion
@@ -184,7 +195,8 @@ public class TriangleTests
 
 		var actual = Triangle.GetPerimeter(sideA, sideB, sideC);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, FailMessageF4,
+			nameof(IShape.Perimeter), expected, actual);
 	}
 
 	[TestMethod]
@@ -197,7 +209,8 @@ public class TriangleTests
 
 		var actual = Triangle.GetPerimeter(sideA, sideB, sideC);
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, FailMessageF4,
+			nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -208,9 +221,11 @@ public class TriangleTests
 		const double sideC = 67.5;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.Perimeter;
 		var expected = Triangle.GetPerimeter(sideA, sideB, sideC);
 
-		Assert.AreEqual(expected, triangle.Perimeter, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -221,9 +236,11 @@ public class TriangleTests
 		const double sideC = 0.4;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.Perimeter;
 		var expected = Triangle.GetPerimeter(sideA, sideB, sideC);
 
-		Assert.AreEqual(expected, triangle.Perimeter, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, FailMessageF4,
+			nameof(IShape.Area), expected, actual);
 	}
 
 	#endregion
@@ -231,7 +248,7 @@ public class TriangleTests
 	#region Exception
 
 	[TestMethod]
-	[ExpectedException(typeof(ArgumentException), "Exception was not thrown.")]
+	[ExpectedException(typeof(ArgumentException), NoExceptionMessage)]
 	public void Triangle_2d43and0and1d71_Exception()
 	{
 		const double sideA = 2.43;
@@ -242,7 +259,7 @@ public class TriangleTests
 	}
 
 	[TestMethod]
-	[ExpectedException(typeof(ArgumentException), "Exception was not thrown.")]
+	[ExpectedException(typeof(ArgumentException), NoExceptionMessage)]
 	public void Triangle_1andMin2d23and0d03_Exception()
 	{
 		const double sideA = 1;
@@ -264,8 +281,10 @@ public class TriangleTests
 		const double sideC = 5;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.IsRight;
 
-		Assert.AreEqual(triangle.IsRight, true);
+		Assert.IsTrue(actual, FailMessage,
+			nameof(Triangle.IsRight), true.ToString(), actual);
 	}
 
 	[TestMethod]
@@ -276,8 +295,10 @@ public class TriangleTests
 		const double sideC = 41.81067;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.IsRight;
 
-		Assert.AreEqual(triangle.IsRight, true);
+		Assert.IsTrue(actual, FailMessage, 
+			nameof(Triangle.IsRight), true.ToString(), actual);
 	}
 
 	[TestMethod]
@@ -288,8 +309,10 @@ public class TriangleTests
 		const double sideC = 15;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.IsRight;
 
-		Assert.AreEqual(triangle.IsRight, false);
+		Assert.IsFalse(actual, FailMessage,
+			nameof(Triangle.IsRight), false.ToString(), actual);
 	}
 
 	#endregion
@@ -304,8 +327,10 @@ public class TriangleTests
 		const double sideC = 1;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.IsEquilateral;
 
-		Assert.AreEqual(triangle.IsEquilateral, true);
+		Assert.IsTrue(actual, FailMessage,
+			nameof(Triangle.IsEquilateral), true.ToString(), actual);
 	}
 
 	[TestMethod]
@@ -316,8 +341,10 @@ public class TriangleTests
 		const double sideC = 12.3;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.IsEquilateral;
 
-		Assert.AreEqual(triangle.IsEquilateral, true);
+		Assert.IsTrue(actual, FailMessage,
+			nameof(Triangle.IsEquilateral), true.ToString(), actual);
 	}
 
 	[TestMethod]
@@ -328,8 +355,10 @@ public class TriangleTests
 		const double sideC = 6.9;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.IsEquilateral;
 
-		Assert.AreEqual(triangle.IsEquilateral, false);
+		Assert.IsFalse(actual, FailMessage, 
+			nameof(Triangle.IsEquilateral), false.ToString(), actual);
 	}
 
 	#endregion
@@ -344,8 +373,10 @@ public class TriangleTests
 		const double sideC = 45.4;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.IsIsosceles;
 
-		Assert.AreEqual(triangle.IsIsosceles, true);
+		Assert.IsTrue(actual, FailMessage,
+			nameof(Triangle.IsIsosceles), true.ToString(), actual);
 	}
 
 	[TestMethod]
@@ -356,8 +387,10 @@ public class TriangleTests
 		const double sideC = 71.3;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.IsIsosceles;
 
-		Assert.AreEqual(triangle.IsIsosceles, true);
+		Assert.IsTrue(actual, FailMessage,
+			nameof(Triangle.IsIsosceles), true.ToString(), actual);
 	}
 
 	[TestMethod]
@@ -368,8 +401,10 @@ public class TriangleTests
 		const double sideC = 68.44;
 
 		var triangle = new Triangle(sideA, sideB, sideC);
+		var actual = triangle.IsIsosceles;
 
-		Assert.AreEqual(triangle.IsIsosceles, false);
+		Assert.IsFalse(actual, FailMessage,
+			nameof(Triangle.IsIsosceles), false.ToString(), actual);
 	}
 
 	#endregion

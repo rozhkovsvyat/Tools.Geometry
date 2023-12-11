@@ -1,13 +1,8 @@
 namespace Tools.GeometryTests;
 
 [TestClass]
-public class ShaperTests
+public class ShaperTests : Tests
 {
-	/// <summary>
-	/// Double comparison tolerance.
-	/// </summary>
-	private const float Tolerance = 0.01f;
-
 	/// <summary>
 	/// Instance of <see cref="Shaper"/>.
 	/// </summary>
@@ -17,6 +12,21 @@ public class ShaperTests
 	/// Test shape arguments implementation.
 	/// </summary>
 	internal class TestArgs : IArgs { }
+
+	#region Count
+
+	[TestMethod]
+	public void TypeNames_Count_2returned()
+	{
+		const int expected = 2;
+
+		var actual = _shaper.TypeNames.Count();
+
+		Assert.AreEqual(expected, actual, FailMessage, 
+			nameof(Shaper.TypeNames), expected, actual);
+	}
+
+	#endregion
 
 	#region Triangle
 
@@ -33,7 +43,8 @@ public class ShaperTests
 		var expected = typeof(Triangle);
 		var actual = shape.GetType();
 
-		Assert.AreEqual(expected, actual);
+		Assert.AreEqual(expected, actual, FailMessage,
+			nameof(Type), expected, actual);
 	}
 
 	[TestMethod]
@@ -46,7 +57,8 @@ public class ShaperTests
 		var shape = _shaper.GetShape(args);
 		var actual = shape.Area;
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance, 
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -61,7 +73,8 @@ public class ShaperTests
 		var shape = _shaper.GetShape(args);
 		var actual = shape.Area;
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -76,7 +89,8 @@ public class ShaperTests
 		var shape = _shaper.GetShape(args);
 		var actual = shape.Area;
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -91,7 +105,8 @@ public class ShaperTests
 		var shape = _shaper.GetShape(args);
 		var actual = shape.Area;
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -106,7 +121,8 @@ public class ShaperTests
 		var shape = _shaper.GetShape(args);
 		var actual = shape.Perimeter;
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Perimeter), expected, actual);
 	}
 
 	#endregion
@@ -124,7 +140,8 @@ public class ShaperTests
 		var expected = typeof(Circle);
 		var actual = shape.GetType();
 
-		Assert.AreEqual(expected, actual);
+		Assert.AreEqual(expected, actual, FailMessage,
+			nameof(Type), expected, actual);
 	}
 
 	[TestMethod]
@@ -137,7 +154,8 @@ public class ShaperTests
 		var shape = _shaper.GetShape(args);
 		var actual = shape.Area;
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Area), expected, actual);
 	}
 
 	[TestMethod]
@@ -151,7 +169,8 @@ public class ShaperTests
 
 		var actual = shape.Perimeter;
 
-		Assert.AreEqual(expected, actual, Tolerance);
+		Assert.AreEqual(expected, actual, Tolerance,
+			FailMessageF4, nameof(IShape.Perimeter), expected, actual);
 	}
 
 	#endregion
@@ -167,7 +186,8 @@ public class ShaperTests
 		var expected = typeof(DefaultShape);
 		var actual = shape.GetType();
 
-		Assert.AreEqual(expected, actual);
+		Assert.AreEqual(expected, actual, FailMessage,
+			nameof(Type), expected, actual);
 	}
 
 	#endregion
@@ -175,7 +195,7 @@ public class ShaperTests
 	#region Exception
 
 	[TestMethod]
-	[ExpectedException(typeof(ArgumentException), "Exception was not thrown.")]
+	[ExpectedException(typeof(ArgumentException), NoExceptionMessage)]
 	public void Shape_TriangleArgs_0and5and6_Exception()
 	{
 		const double sideA = 0;
@@ -183,11 +203,12 @@ public class ShaperTests
 		const double sideC = 6;
 
 		var args = new TriangleArgs(sideA, sideB, sideC);
+
 		var _ = _shaper.GetShape(args);
 	}
 
 	[TestMethod]
-	[ExpectedException(typeof(ArgumentException), "Exception was not thrown.")]
+	[ExpectedException(typeof(ArgumentException), NoExceptionMessage)]
 	public void Shape_TriangleArgs_0d3andMin5and1_Exception()
 	{
 		const double sideA = 0.3;
@@ -195,38 +216,31 @@ public class ShaperTests
 		const double sideC = 1;
 
 		var args = new TriangleArgs(sideA, sideB, sideC);
+
 		var _ = _shaper.GetShape(args);
 	}
 
 	[TestMethod]
-	[ExpectedException(typeof(ArgumentException), "Exception was not thrown.")]
+	[ExpectedException(typeof(ArgumentException), NoExceptionMessage)]
 	public void Shape_CircleArgs_Min11d78_Exception()
 	{
 		const double radius = -11.78;
 
 		var args = new CircleArgs(radius);
+
 		var _ = _shaper.GetShape(args);
 	}
 
 	[TestMethod]
-	[ExpectedException(typeof(ArgumentException), "Exception was not thrown.")]
+	[ExpectedException(typeof(ArgumentException), NoExceptionMessage)]
 	public void Shape_CircleArgs_0_Exception()
 	{
-		const double radius = 0;
+		const double radius = 1;
 
 		var args = new CircleArgs(radius);
+
 		var _ = _shaper.GetShape(args);
 	}
 
 	#endregion
-
-	[TestMethod]
-	public void TypesCount_2returned()
-	{
-		const int expected = 2;
-
-		var actual = _shaper.TypesCount;
-
-		Assert.AreEqual(expected, actual);
-	}
 }
