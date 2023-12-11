@@ -24,7 +24,7 @@ Provides the ability to calculate shape properties:
 
 ### SHAPES
 
-* **IShape** -- interface providing shape properties, default shape implementation
+* **IShape** -- interface providing shape properties, default implementation with zero properties
 * **Triangle, Circle** -- shape implementations containing static and non-static calculation methods
 
 ---
