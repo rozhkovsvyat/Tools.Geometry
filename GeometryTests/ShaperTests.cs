@@ -235,7 +235,7 @@ public class ShaperTests : Tests
 	[ExpectedException(typeof(ArgumentException), NoExceptionMessage)]
 	public void Shape_CircleArgs_0_Exception()
 	{
-		const double radius = 1;
+		const double radius = 0;
 
 		var args = new CircleArgs(radius);
 
