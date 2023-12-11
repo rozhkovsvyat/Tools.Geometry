@@ -11,7 +11,7 @@ public class Triangle : IShape
 	/// <remarks>Used if the triangle is right.</remarks>
 	/// <param name="legA">Leg A.</param>
 	/// <param name="legB">Leg B.</param>
-	public static double GetAreaRight(double legA, double legB) 
+	public static double GetAreaRight(double legA, double legB)
 		=> legA * legB * 0.5;
 
 	/// <inheritdoc cref="GetArea"/>
@@ -101,7 +101,7 @@ public class Triangle : IShape
 	private readonly double _sideA, _sideB, _sideC;
 
 	/// <summary>
-	/// Float comparison tolerance.
+	/// Double comparison tolerance.
 	/// </summary>
 	private const float Tolerance = 0.05f;
 
@@ -112,7 +112,7 @@ public class Triangle : IShape
 	/// <param name="sideB">Side B.</param>
 	/// <param name="sideC">Side C.</param>
 	/// <exception cref="ArgumentException"></exception>
-	internal Triangle(double sideA, double sideB, double sideC)
+	public Triangle(double sideA, double sideB, double sideC)
 	{
 		var sides = new[] { sideA, sideB, sideC };
 

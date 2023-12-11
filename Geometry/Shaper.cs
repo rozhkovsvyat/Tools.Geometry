@@ -8,19 +8,17 @@ using Factory = RecipeFactory<IShape, IArgs>;
 public class Shaper
 {
 	/// <summary>
-	/// Private <see cref="IShape"/> factory.
+	/// <see cref="IShape"/> factory.
 	/// </summary>
-	private readonly Factory _factory;
+	private readonly Factory _factory 
+		= new (() => new DefaultShape());
 
 	/// <summary>
 	/// Empty constructor.
 	/// </summary>
-	public Shaper()
-	{
-		_factory = new Factory(() => new DefaultShape());
-		_factory.RequestBasePropRecipes<IArgs>
+	public Shaper() 
+		=> _factory.RequestBasePropRecipes<IArgs>
 			(nameof(IShapeArgs.Recipe));
-	}
 
 	/// <summary>
 	/// Provides <see cref="IShape"/> instance according to the given <see cref="IArgs"/>.

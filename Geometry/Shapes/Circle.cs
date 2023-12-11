@@ -6,7 +6,7 @@
 public class Circle : IShape
 {
 	#region Static
-
+	 
 	/// <summary>
 	/// Returns the area of a circle.
 	/// </summary>
@@ -49,7 +49,7 @@ public class Circle : IShape
 	/// </summary>
 	/// <param name="radius">Circle radius.</param>
 	/// <exception cref="ArgumentException"></exception>
-	internal Circle(double radius) 
+	public Circle(double radius) 
 		=> _radius = radius > 0 ? radius : throw new ArgumentException
 			($"Input {nameof(radius)} is less than or equal to zero.");
 }
