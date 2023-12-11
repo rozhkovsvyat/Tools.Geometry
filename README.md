@@ -8,7 +8,35 @@ Geometry working toolkit
 
 > :eye_speech_bubble: https://www.nuget.org/packages/RozhkovSvyat.Tools.Geometry/
 
+Provides the ability to calculate shape properties:
+* **Circle** -- perimeter, area based on radius
+* **Triangle** -- perimeter, area based on three sides (using different formulas according to the type of triangle)
+
 ---
 
-* Creates specified type objects using child type recipes
-* The recipe is a constructor delegate of a child type _(optional: which takes a set of arguments)_
+### SHAPER
+
+* Provides shape instances according to the given arguments using [RecipeFactory](https://github.com/rozhkovsvyat/Tools.RecipeFactory)
+* Populates the factory with all shape implementations  in the same or a specific assembly when an instance is created
+* Does not know the returned shape specific type
+
+---
+
+### SHAPES
+
+* **IShape** -- interface providing shape properties, default shape implementation (with zero properties)
+* **Triangle, Circle** -- shape implementations containing static and non-static calculation methods
+
+---
+
+### SHAPE ARGS
+
+* **IArgs, IShapeArgs** -- interfaces providing shape arguments and a static recipe (function that returns a new shape)
+* **TriangleArgs, CircleArgs** -- implementations of shape arguments
+
+---
+
+### GEOMETRY TESTS
+
+* **ShaperTests, ShapesTests, ShapeArgsTests** -- unit tests using [MSTest](https://www.nuget.org/packages/MSTest)
+* **Tests** -- abstract class containing test constants
