@@ -9,8 +9,8 @@ Geometry working toolkit
 > :eye_speech_bubble: https://www.nuget.org/packages/RozhkovSvyat.Tools.Geometry/
 
 Provides the ability to calculate shape properties:
-* **Circle** -- perimeter, area based on radius
 * **Triangle** -- perimeter, area based on three sides (using different formulas according to the type of triangle)
+* **Circle** -- perimeter, area based on radius
 
 ---
 
@@ -38,5 +38,5 @@ Provides the ability to calculate shape properties:
 
 ### GEOMETRY TESTS
 
-* **ShaperTests, ShapesTests, ShapeArgsTests** -- unit tests using [MSTest](https://www.nuget.org/packages/MSTest)
+* **ShaperTests, ShapesTests, ShapeArgsTests** -- unit tests classes based on [MSTest](https://www.nuget.org/packages/MSTest)
 * **Tests** -- abstract class containing test constants
