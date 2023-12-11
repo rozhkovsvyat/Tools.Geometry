@@ -17,7 +17,7 @@ Provides the ability to calculate shape properties:
 ### SHAPER
 
 * Provides shape instances according to the given arguments using [RecipeFactory](https://github.com/rozhkovsvyat/Tools.RecipeFactory)
-* Populates the factory with all shape implementations  in the same or a specific assembly when created
+* Populates the factory with all shape implementations from the same or a specific assembly when created
 * Does not know the returned shape specific type
 
 ---
