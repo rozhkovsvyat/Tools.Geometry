@@ -2,7 +2,7 @@
 
 <img align="right" width="100" height="100" src="https://github.com/rozhkovsvyat/Tools.Geometry/assets/71471748/8b327452-8d36-43c8-afca-6c34e76450de">
 
-**#v1.0.1 #net7.0.10**
+**#v1.0.1 #net7.0.10 #mstest2.2.10**
 
 Geometry working toolkit
 
@@ -38,5 +38,5 @@ Provides the ability to calculate shape properties:
 
 ### GEOMETRY TESTS
 
-* **ShaperTests, ShapesTests, ShapeArgsTests** -- unit test classes based on [MSTest](https://www.nuget.org/packages/MSTest)
+* **ShaperTests, ShapesTests, ShapeArgsTests** -- unit test classes
 * **Tests** -- abstract class containing testing constants
