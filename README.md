@@ -33,10 +33,3 @@ Provides the ability to calculate shape properties:
 
 * **IArgs, IShapeArgs** -- interfaces providing shape arguments and a static recipe _(func that returns a new shape)_
 * **TriangleArgs, CircleArgs** -- implementations of shape arguments
-
----
-
-### GEOMETRY TESTS
-
-* **ShaperTests, ShapesTests, ShapeArgsTests** -- unit test classes
-* **Tests** -- abstract class containing testing constants
